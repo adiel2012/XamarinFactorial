@@ -24,14 +24,8 @@ namespace App1
             __viewModel = new MyViewModel();
             BindingContext = __viewModel;
 
-
-            Button btn1 = this.FindByName<Button>("btn1");
             btn1.Command = __viewModel.MyCommand;
-
-            Label lbl1 = this.FindByName<Label>("lbl1");
             lbl1.SetBinding(Label.TextProperty, new Binding() { Source = __viewModel, Path = "FactorialValue", Converter = new Utils.FactorialToStringConverter() });
-
-            Entry entry1 = this.FindByName<Entry>("entry1");
             entry1.SetBinding(Entry.TextProperty, new Binding() { Source = __viewModel, Path = "Value", Converter = new Utils.StringToIntegerConverter() });
         }
 
